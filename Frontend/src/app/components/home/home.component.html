@@ -1,0 +1,115 @@
+<!-- main section  -->
+<div class="main-section">
+    <div class="profile">
+        <img src="profile.jpg" alt="" width="20px" height="20px">
+        <p>{{UserName}}</p>
+        <button class="btn btn-danger mx-2" (click)="logout()">logout</button>
+    </div>
+    <div class="search">
+        <input type="text" class="form-control search-input" placeholder="search note" [(ngModel)]="searchText" name="search" (input)="trackSearchNote()">
+        <button class="btn btn-outline-warning " (click)="searchNotes()"><span><i class="fa fa-search"></i></span>Search</button>
+    </div>
+    <hr>
+</div>
+<!-- <a routerLink="/reset-password/sdfsghfgsdhgfkhsdf">Click here</a> -->
+
+
+
+
+<section>
+    <!-- spinner -->
+    <div class="spinner-border" role="status" *ngIf="spinner">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <!-- search no data found -->
+     <div class="mx-auto" *ngIf="noSearchData"><h5>No Notes Found</h5></div>
+
+    <div class="display-notes">
+        <!-- all notes to desplay  -->
+        <div class="notes-display mt-4">
+            @for (item of notesData; track $index) {
+            <div class="card" [ngStyle]="{ 'border-top': '5px solid ' + item.color}">
+                <span class="pinned" (click)="setPinned(item)"><i class="fa fa-thumb-tack "
+                        [ngClass]="item.pinned == false?'text-secondary':'text-danger'"></i></span>
+                <div class="card-body">
+                    <div class="title">
+                        <h5>Title : {{item.title}} </h5>
+                    </div>
+                    <div class="content">
+                        <p class="content"><strong>Content :</strong> {{item.content}}</p>
+                    </div>
+                </div>
+                <div class="card-footer text-muted edit-delete">
+                    {{item.createdAt | date}} - {{item.createdAt | date:"HH:mm"}}
+                    <span><i class="fa fa-trash text-danger" (click)="deleteNotesData(item._id)"></i></span>
+                    <span><i class="fa fa-pencil text-warning" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="editFormData(item)"></i></span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="add-notes">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="initilizeFormData()"><span><i class="fa fa-plus"></i></span></button>
+    </div>
+</section>
+
+<!-- add modal  -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Notes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="notesFormData">
+                    <div class="mb-2">
+                        <label class="form-labe">Title</label>
+                        <input type="text" class="form-control" placeholder="Enter Title" formControlName="title">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-labe">Content</label>
+                        <textarea type="text" class="form-control" placeholder="Enter Content" rows="6"
+                            formControlName="content"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-labe">Note Color</label>
+                        <div class="color">
+                            <input type="text" class="red" (click)="theme1()">
+                            <input type="text" class="green" (click)="theme2()">
+                            <input type="text" class="yellow" (click)="theme3()">
+                            <input type="text" class="violet" (click)="theme4()">
+                            <input type="text" class="blue" (click)="theme5()">
+                            <input type="text" class="orange" (click)="theme6()">
+                        </div>
+                    </div>
+                </form>
+                <div class="tag-section">
+                    <label class="form-label">Tags</label>
+                    <div class="mb-2 d-flex">
+                        <input class="form-control" type="text" placeholder="Enter Tags" #tag [(ngModel)]="tagData"
+                            name="tagData">
+                        <button type="button" class="btn btn-warning w-50" (click)="addTags(tag.value)">Add
+                            Tags</button>
+                    </div>
+                    <div class="tag-display-section mt-4">
+                        @for (item of tags; track $index) {
+                        <span class="tags-view">{{'#'+ item}} <span>&nbsp;&nbsp;</span><i class="fa fa-close"
+                                (click)="removeTag($index)"></i></span>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" *ngIf="isAdded" (click)="saveNotesData()">Save</button>
+                <button type="button" class="btn btn-warning" *ngIf="isEdit" (click)="updateNotesFormData()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

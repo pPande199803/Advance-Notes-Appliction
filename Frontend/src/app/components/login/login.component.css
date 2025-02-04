@@ -1,0 +1,40 @@
+.main-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 70px 0;
+}
+.main-section .card{
+    width: 30rem;
+    border-radius: 20px;
+}
+.title{
+    text-align: center;
+}
+.form-control{
+    font-size: 18px;
+    font-weight: 500;
+}
+.form-control:focus{
+    box-shadow: none;
+}
+.create-account a{
+    cursor: pointer;
+    float: right;
+    color: blue;
+    text-decoration: none;
+}
+.create-account a:hover{
+    text-decoration: underline;
+    color: rgba(0, 0, 255, 0.792);
+}
+.forget a{
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+}
+.forget a:hover{
+    text-decoration: underline;
+    color: rgba(0, 0, 255, 0.792);
+}

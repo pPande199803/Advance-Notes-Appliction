@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <section class="items">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Notes-Application</span>
+            <div class="theme">
+                <span [ngClass]="!isDarkTheme?'light':''"><i class="fa fa-sun-o"></i></span>
+                <label class="switch">
+                    <input type="checkbox" [checked]="isDarkTheme" (change)="toggleTheme()">
+                    <span class="slider round"></span>
+                </label>
+                <span [ngClass]="!isDarkTheme?'':'dark'"><i class="fa fa-moon-o"></i></span>
+            </div>
+        </div>
+    </section>
+</nav>
+<router-outlet />

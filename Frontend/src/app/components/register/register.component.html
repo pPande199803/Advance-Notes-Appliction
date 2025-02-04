@@ -1,0 +1,54 @@
+<div class="conatiner-fluid">
+    <div class="main-section">
+        <div class="card">
+            <div class="card-body">
+                <div class="title">
+                    <h3>Register</h3>
+                    <hr>
+                </div>
+                <form [formGroup]="registerForm">
+                    <div class="mb-2">
+                        <label class="form-label">UserName</label>
+                        <input type="text" class="form-control" placeholder="Enter UserName"
+                        formControlName="userName">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Email-Id</label>
+                        <input type="text" class="form-control" placeholder="Enter Email-Id" #emailId
+                        formControlName="emailId">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Email-Id Verify Code</label>
+                        <div class="verify d-flex">
+                            <input type="number" class="form-control" placeholder="Enter Verify Code"
+                                style="width: 150px;" #otp formControlName="otp">
+                            <button type="button" class="btn btn-primary mx-2" *ngIf="sendEmailCode"
+                                (click)="sendEmail(emailId.value)">Send Code On Email</button>
+                            <button type="button" class="btn btn-success mx-2" *ngIf="verifyCode"
+                                (click)="verificationCode(emailId.value, otp.value)">Verify Code</button>
+                            <button type="button" class="btn btn-primary mx-2" *ngIf="resendOtp"
+                                (click)="sendEmail(emailId.value)">Otp resend</button>
+                            <div class="spinner-border text-primary mx-4 p-2" role="status" *ngIf="spinner">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="checked" *ngIf="isVerified">
+                                <span><i class="fa fa-check-circle fa-2x p-2 text-success"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Password</label>
+                        <input type="text" class="form-control" placeholder="Enter Password" formControlName="password">
+                    </div>
+                    <div class="create-account mb-4 p-2">
+                        <a routerLink="/login">Already have an Account.?Click here</a>
+                    </div>
+                    <div class="login-button d-grid mx-auto col-6">
+                        <button class="btn btn-warning mt-2" (click)="registerFormData()" [disabled]="isVerified==false?true:false">Register</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

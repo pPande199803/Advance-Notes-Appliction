@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import 'ngx-toastr/toastr.css'; */
+@import 'ngx-toastr/toastr';
+/* @import 'ngx-toastr/toastr-bs5-alert'; */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  width: 100%;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  /* background-color: rgb(0, 0, 0);
+  color: whitesmoke; */
+  overflow-x: hidden;
+}
+
+.navbar {
+  border-bottom: 1px solid lightgrey;
+}
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+.h1 {
+  font-size: 30px;
+}
+.theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.theme span {
+  font-size: 30px;
+  right: 0%;
+}
+
+/* toggle button css  */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(0, 0, 0);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ffbf00;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* dark mode light mode  */
+/* dark-theme.scss */
+body.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark-theme .navbar {
+  background-color: #1e1e1e;
+}
+.dark-theme .modal-content{
+  background: #000;
+  color: whitesmoke;
+}
+.dark-theme .card{
+  background: #000;
+  color: whitesmoke;
+  border: 1px solid gray;
+}
+.dark-theme .btn-close{
+  background-color: darkgoldenrod;
+}
+.dark-theme .content strong{
+  color: whitesmoke;
+}
+.dark-theme .content{
+  color: whitesmoke;
+  /* font-size: 18px; */
+  font-weight: 500;
+}
+
+.dark-theme .button {
+  background-color: #333333;
+  color: #ffffff;
+}
+.dark-theme .tags-view{
+  color: #000;
+}
+.card{
+  border: 1px solid gray;
+}
+
+
+#toast-container > .toast-success {
+  background-image: none;
+  background-color: #ffffff;
+  color: black;
+}
+#toast-container > .toast-error {
+  background-image: none;
+  background-color: #ffffff;
+  color: red;
+}

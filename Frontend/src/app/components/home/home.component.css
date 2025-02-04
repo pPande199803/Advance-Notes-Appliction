@@ -1,0 +1,163 @@
+
+.add-notes button {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 2rem;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* float: right; */
+  margin: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-input {
+  width: 500px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.form-control {
+  font-size: 18px;
+  font-weight: 500;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+.btn {
+  cursor: pointer;
+}
+.btn:focus {
+  box-shadow: none;
+}
+.color input {
+  margin: 10px;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+}
+
+.red {
+  background-color: red;
+  border: none;
+}
+.green {
+  background-color: green;
+  border: none;
+}
+.yellow {
+  background-color: rgb(255, 162, 0);
+  border: none;
+}
+.violet {
+  background-color: rgb(128, 7, 128);
+  border: none;
+}
+.blue {
+  background-color: blue;
+  border: none;
+}
+.orange {
+  background-color: darkorange;
+  border: none;
+}
+.tag-display-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.tags-view {
+  background-color: rgb(234, 234, 234);
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.pinned{
+  text-align: end;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.card{
+  /* border-top:5px solid #ffbf00; */
+  border-radius: 20px;
+  /* margin: auto; */
+  width: 25rem;
+  padding: 10px;
+}
+.card-body{
+  height: 8rem;
+  overflow: hidden;
+}
+.card-footer{
+  background-color: transparent;
+}
+.spinner-border{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40vh auto;
+}
+
+/* .content strong{
+  color: #212529b3;
+} */
+.content{
+  text-align: justify;
+  color: rgb(104, 104, 104);
+  overflow: hidden;
+  /* height: 9rem; */
+}
+.edit-delete span{
+  font-size: 24px;
+  margin-left: 20px;
+  cursor: pointer;
+  float: right;
+}
+.notes-display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.notes-display-pinned{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.profile{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.443);
+  /* flex-wrap: wrap; */
+}
+.profile img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.profile p{
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 720px) {
+  .card{
+    width: 90%;
+  }
+}
